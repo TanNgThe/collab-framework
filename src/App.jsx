@@ -1,0 +1,258 @@
+import React, { useState } from 'react';
+import {
+  Lightbulb,
+  Target,
+  Users,
+  ShieldCheck,
+  RefreshCcw,
+  CheckCircle2,
+  BrainCircuit,
+  MessageSquare,
+  Award,
+  ArrowUpCircle
+} from 'lucide-react';
+
+export default function App() {
+  const [activeNode, setActiveNode] = useState(0);
+
+  const frameworkSteps = [
+    {
+      id: 1,
+      title: "Ideation & Socialization",
+      icon: <Lightbulb className="w-7 h-7" />,
+      description: "Start with a rough, open-minded mindset. Don't lock into a rigid goal alone.",
+      actions: [
+        "Set an initial, rough goal.",
+        "Socialize problems and issues with others.",
+        "Refine the idea heavily through other people's perspectives."
+      ],
+      intelValue: "Integrity",
+      valueDesc: "Be truthful and transparent about current flaws. Uncompromising integrity means having honest conversations to find the right path, rather than hiding issues.",
+      color: "bg-blue-50 border-blue-200 text-blue-700",
+      activeColor: "ring-4 ring-blue-300 shadow-lg scale-105"
+    },
+    {
+      id: 2,
+      title: "Attainable Goal Design",
+      icon: <Target className="w-7 h-7" />,
+      description: "Transform the socially refined idea into a structured, actionable plan.",
+      actions: [
+        "Design the goal to be attainable and time-bound.",
+        "Set minor checkpoints leading up to the major goal."
+      ],
+      intelValue: "Results Driven",
+      valueDesc: "Prioritize, focus, and execute flawlessly with urgency. Make data-driven decisions to hit those minor checkpoints on time.",
+      color: "bg-sky-50 border-sky-200 text-sky-700",
+      activeColor: "ring-4 ring-sky-300 shadow-lg scale-105"
+    },
+    {
+      id: 3,
+      title: "Building the Coalition",
+      icon: <Users className="w-7 h-7" />,
+      description: "You cannot drive massive change alone. Mobilize influencers to spread the vision.",
+      actions: [
+        "Gather key players to help spread the idea.",
+        "Make sure they hold the exact same objective to the vision.",
+        "Leverage these key players to convince others."
+      ],
+      intelValue: "One Intel",
+      valueDesc: "Commit to team success, doing what's best for the organization. Recognize, respect, and build trust with each other as a unified front.",
+      color: "bg-teal-50 border-teal-200 text-teal-700",
+      activeColor: "ring-4 ring-teal-300 shadow-lg scale-105"
+    },
+    {
+      id: 4,
+      title: "Trust & Innovation Culture",
+      icon: <ShieldCheck className="w-7 h-7" />,
+      description: "Create the psychological safety required for high performance and risk-taking.",
+      actions: [
+        "Form a team that fundamentally trusts each other.",
+        "Reward innovative approaches.",
+        "Build an environment where people can admit flaws and ask for help."
+      ],
+      intelValue: "Fearless Innovation",
+      valueDesc: "Take informed risks together, learn and pivot quickly from mistakes. Enable curiosity so the team can be bold and innovative without fear.",
+      color: "bg-emerald-50 border-emerald-200 text-emerald-700",
+      activeColor: "ring-4 ring-emerald-300 shadow-lg scale-105"
+    },
+    {
+      id: 5,
+      title: "Inclusive Change Management",
+      icon: <MessageSquare className="w-7 h-7" />,
+      description: "Address friction proactively rather than ignoring detractors or skeptics.",
+      actions: [
+        "Work directly alongside those who are not totally on board.",
+        "Understand the problem from their unique perspective.",
+        "Keep an open mind; their skepticism might reveal a blind spot."
+      ],
+      intelValue: "Inclusion",
+      valueDesc: "Value and embrace differences. Build inclusive teams where everyone's perspective is heard, and adapt the plan to address valid concerns.",
+      color: "bg-amber-50 border-amber-200 text-amber-700",
+      activeColor: "ring-4 ring-amber-300 shadow-lg scale-105"
+    },
+    {
+      id: 6,
+      title: "Constant Refinement",
+      icon: <RefreshCcw className="w-7 h-7" />,
+      description: "The environment is dynamic. Execution requires continuous feedback and adjustment.",
+      actions: [
+        "Add a formal phase of constant refinement.",
+        "Use feedback to tweak goals and processes.",
+        "Create a continuous loop back to Phase 1."
+      ],
+      intelValue: "Quality",
+      valueDesc: "Be disciplined to deliver reliably. Set high standards, continuously improve, and cultivate talent to do the right things right.",
+      color: "bg-rose-50 border-rose-200 text-rose-700",
+      activeColor: "ring-4 ring-rose-300 shadow-lg scale-105"
+    }
+  ];
+
+  return (
+    <div className="min-h-screen bg-slate-50 p-4 md:p-8 font-sans text-slate-800">
+      <div className="max-w-6xl mx-auto space-y-8">
+
+        <header className="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 md:p-10">
+          <div className="flex flex-col md:flex-row items-start md:items-center gap-5">
+            <div className="p-4 bg-gradient-to-br from-blue-600 to-cyan-700 rounded-xl text-white shadow-md">
+              <BrainCircuit className="w-10 h-10" />
+            </div>
+            <div>
+              <h1 className="text-3xl font-extrabold text-slate-900 tracking-tight">Dan Rodriguez's Execution Framework</h1>
+              <p className="text-slate-500 mt-2 text-lg">Collaborative Framework Inspired by Dan Rodriguez</p>
+            </div>
+          </div>
+        </header>
+
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+
+          <div className="lg:col-span-2 bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-slate-200">
+            <h2 className="text-2xl font-bold text-slate-800 flex items-center gap-2 mb-8">
+              <Target className="w-6 h-6 text-blue-600" />
+              The Continuous Loop
+            </h2>
+
+            <div className="relative pl-2 md:pl-0">
+              <div className="absolute left-7 top-10 bottom-10 w-1 bg-slate-200 rounded-full hidden md:block"></div>
+
+              <div className="space-y-6 relative">
+                {frameworkSteps.map((step, index) => (
+                  <div
+                    key={step.id}
+                    onClick={() => setActiveNode(index)}
+                    className={`relative flex flex-col md:flex-row gap-5 cursor-pointer transition-all duration-300 group ${
+                      activeNode === index ? 'opacity-100' : 'opacity-60 hover:opacity-100'
+                    }`}
+                  >
+                    <div className={`z-10 w-14 h-14 shrink-0 rounded-full flex items-center justify-center border-2 transition-all duration-300 ${step.color} ${activeNode === index ? step.activeColor : 'bg-white group-hover:scale-105'}`}>
+                      {step.icon}
+                    </div>
+
+                    <div className={`flex-1 bg-slate-50 rounded-xl border p-5 transition-all duration-300 ${
+                      activeNode === index ? 'border-blue-400 bg-white shadow-md' : 'border-slate-200'
+                    }`}>
+                      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 mb-3">
+                        <h3 className="text-xl font-bold text-slate-900">
+                          <span className="text-slate-400 mr-2">{step.id}.</span>
+                          {step.title}
+                        </h3>
+                        <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-blue-100 text-blue-800 border border-blue-200 whitespace-nowrap">
+                          Intel Value: {step.intelValue}
+                        </span>
+                      </div>
+
+                      <p className="text-slate-600 mb-4 font-medium">{step.description}</p>
+
+                      <div className={`overflow-hidden transition-all duration-300 ${activeNode === index ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}>
+                        <ul className="space-y-2 mb-4 bg-white p-4 rounded-lg border border-slate-100">
+                          {step.actions.map((action, i) => (
+                            <li key={i} className="flex items-start gap-2 text-sm text-slate-700 font-medium">
+                              <CheckCircle2 className="w-5 h-5 text-green-500 mt-0.5 shrink-0" />
+                              <span>{action}</span>
+                            </li>
+                          ))}
+                        </ul>
+
+                        <div className="p-4 bg-slate-800 rounded-lg text-sm shadow-inner">
+                          <strong className="text-blue-300 font-semibold uppercase tracking-wider text-xs block mb-1">Value Deep-Dive: {step.intelValue}</strong>
+                          <span className="text-slate-200 leading-relaxed">{step.valueDesc}</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+
+                <div className="relative flex md:flex-row flex-col gap-5 opacity-60">
+                  <div className="z-10 w-14 h-14 shrink-0 rounded-full flex items-center justify-center bg-slate-100 border-2 border-slate-300 text-slate-500">
+                    <ArrowUpCircle className="w-7 h-7" />
+                  </div>
+                  <div className="flex-1 flex items-center">
+                    <p className="text-sm font-semibold text-slate-500 uppercase tracking-widest">Loops back to Ideation & Socialization</p>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+          <div className="space-y-6">
+            <div className="bg-gradient-to-br from-slate-900 to-slate-800 rounded-2xl shadow-xl p-6 md:p-8 text-white sticky top-8">
+              <div className="flex items-center gap-3 mb-6">
+                <div className="p-2 bg-amber-500 rounded-lg">
+                  <Award className="w-6 h-6 text-white" />
+                </div>
+                <h2 className="text-xl font-bold">The Motivation Engine</h2>
+              </div>
+
+              <p className="text-slate-300 mb-6 text-sm font-medium leading-relaxed">
+                How do you ensure people are motivated to work toward the <strong className="text-white">exact same goal</strong>? This framework answers that systematically:
+              </p>
+
+              <div className="space-y-4">
+                <div className="bg-white/10 rounded-xl p-4 border border-white/5 hover:bg-white/15 transition-colors">
+                  <h4 className="font-bold text-amber-400 mb-1 flex items-center gap-2">
+                    <span className="bg-amber-400/20 text-amber-400 w-5 h-5 flex items-center justify-center rounded-full text-xs">1</span>
+                    Shared Ownership
+                  </h4>
+                  <p className="text-sm text-slate-300 leading-relaxed">Motivation starts when people feel heard. Refining the goal through their perspectives (Phase 1) makes it <em>their</em> goal, not just yours.</p>
+                </div>
+
+                <div className="bg-white/10 rounded-xl p-4 border border-white/5 hover:bg-white/15 transition-colors">
+                  <h4 className="font-bold text-blue-400 mb-1 flex items-center gap-2">
+                    <span className="bg-blue-400/20 text-blue-400 w-5 h-5 flex items-center justify-center rounded-full text-xs">2</span>
+                    Dopamine Checkpoints
+                  </h4>
+                  <p className="text-sm text-slate-300 leading-relaxed">Large goals cause burnout. Minor, attainable checkpoints (Phase 2) provide constant "wins" that keep team energy high.</p>
+                </div>
+
+                <div className="bg-white/10 rounded-xl p-4 border border-white/5 hover:bg-white/15 transition-colors">
+                  <h4 className="font-bold text-teal-400 mb-1 flex items-center gap-2">
+                    <span className="bg-teal-400/20 text-teal-400 w-5 h-5 flex items-center justify-center rounded-full text-xs">3</span>
+                    Peer Influence
+                  </h4>
+                  <p className="text-sm text-slate-300 leading-relaxed">People are motivated by peers. Gathering key players to spread the vision (Phase 3) ensures motivation comes from all sides, creating social proof.</p>
+                </div>
+
+                <div className="bg-white/10 rounded-xl p-4 border border-white/5 hover:bg-white/15 transition-colors">
+                  <h4 className="font-bold text-emerald-400 mb-1 flex items-center gap-2">
+                    <span className="bg-emerald-400/20 text-emerald-400 w-5 h-5 flex items-center justify-center rounded-full text-xs">4</span>
+                    Psychological Safety
+                  </h4>
+                  <p className="text-sm text-slate-300 leading-relaxed">Fear kills execution. Rewarding innovation and allowing people to admit flaws (Phase 4) removes anxiety, unleashing focus.</p>
+                </div>
+
+                <div className="bg-white/10 rounded-xl p-4 border border-white/5 hover:bg-white/15 transition-colors">
+                  <h4 className="font-bold text-rose-400 mb-1 flex items-center gap-2">
+                    <span className="bg-rose-400/20 text-rose-400 w-5 h-5 flex items-center justify-center rounded-full text-xs">5</span>
+                    Empathy for Skeptics
+                  </h4>
+                  <p className="text-sm text-slate-300 leading-relaxed">Working <em>with</em> detractors (Phase 5) instead of isolating them turns potential roadblocks into highly motivated advocates.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  );
+}
