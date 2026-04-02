@@ -11,6 +11,10 @@ import {
   Award,
   ArrowUpCircle
 } from 'lucide-react';
+import FacilitationGuide from './components/FacilitationGuide';
+import DiscussionPrompts from './components/DiscussionPrompts';
+import ExecutionTechniques from './components/ExecutionTechniques';
+import LeadershipContext from './components/LeadershipContext';
 
 export default function App() {
   const [activeNode, setActiveNode] = useState(0);
@@ -123,6 +127,8 @@ export default function App() {
           </div>
         </header>
 
+        <FacilitationGuide />
+
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
 
           <div className="lg:col-span-2 bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-slate-200">
@@ -195,6 +201,8 @@ export default function App() {
           </div>
 
           <div className="space-y-6">
+            <LeadershipContext />
+
             <div className="bg-gradient-to-br from-slate-900 to-slate-800 rounded-2xl shadow-xl p-6 md:p-8 text-white sticky top-8">
               <div className="flex items-center gap-3 mb-6">
                 <div className="p-2 bg-amber-500 rounded-lg">
@@ -252,6 +260,10 @@ export default function App() {
           </div>
 
         </div>
+
+        <DiscussionPrompts />
+
+        <ExecutionTechniques />
       </div>
     </div>
   );
